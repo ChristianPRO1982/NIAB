@@ -4,6 +4,8 @@
 
 {% block content %}
 
+{% comment %} 🎫🍿📽️🎞️🎬 {% endcomment %}
+
 <h1 class="text-3xl text-gray-500 py-4">Historique</h1>
 
 <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4">
@@ -11,27 +13,27 @@
         <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="0">
             <thead>
                 <tr>
-                <th class="border font-bold" nowrap>Date</th>
-                <th class="border font-bold" nowrap>Pred s.</th>
-                <th class="border font-bold" nowrap>Réel s.</th>
-                <th class="border font-bold text-red-500" nowrap>Pred résu.</th>
-                <th class="border font-bold text-red-500" nowrap>Réel résu.</th>
+                    <th class="border font-bold" nowrap>Date</th>
+                    <th class="border font-bold" nowrap>Pred s.</th>
+                    <th class="border font-bold" nowrap>Réel s.</th>
                 </tr>
             </thead>
             <tbody>
             {% for history in histories %}
-                <tr onClick="tr_display('smartphone1-{{ forloop.counter }}');
+                <tr onClick="tr_display('total1-{{ forloop.counter }}');
+                             tr_display('total2-{{ forloop.counter }}');
+                             tr_display('smartphone1-{{ forloop.counter }}');
                              tr_display('smartphone2-{{ forloop.counter }}');
                              tr_display('smartphone3-{{ forloop.counter }}');
                              tr_display('smartphone4-{{ forloop.counter }}');
                              tr_display('smartphone5-{{ forloop.counter }}');
                              tr_display('smartphone6-{{ forloop.counter }}');
                              tr_display('smartphone7-{{ forloop.counter }}');">
-                    <td class="border">{{ history.0 }}</td>
+                    <td class="border">📽️🍿{{ history.0 }}</td>
                     <td class="border">{{ history.6 }}</td>
                     <td class="border">{{ history.7 }}</td>
-                    <td class="border font-bold text-red-500">{{ history.10 }}€</td>
-                    <td class="border font-bold text-red-500">{{ history.11 }}€</td>
+                    <td id="total1-{{ forloop.counter }}" class="border font-bold text-red-500">Pred résu.<br>{{ history.10 | floatformat:"0" }}€</td>
+                    <td id="total2-{{ forloop.counter }}" class="border font-bold text-red-500">Réel résu.<br>{{ history.11 | floatformat:"0" }}€</td>
                 </tr>
                 <tr id="smartphone1-{{ forloop.counter }}" class="hidden">
                     <td>{{ history.12 | safe}}</td>
@@ -40,34 +42,44 @@
                 <tr id="smartphone2-{{ forloop.counter }}" class="hidden">
                     <td class="border">Coûts fixes</td>
                     <td class="border">Volume calc.</td>
-                    <td class="border">Pred e. Fr</td>
-                    <td class="border">Réel e. Fr</td>
+                    <td class="border hidden">Pred e. Fr</td>
+                    <td id="title2-{{ forloop.counter }}"  class="border">Réel e. Fr</td>
+                    <td></td>
                 </tr>
                 <tr id="smartphone3-{{ forloop.counter }}" class="hidden">
-                    <td>{{ history.2 | safe}}€</td>
-                    <td>{{ history.3 | safe}}</td>
+                    <td>{{ history.2 | floatformat:"0" | safe}}€</td>
+                    <td>{{ history.3 | floatformat:"0" | safe}}</td>
                     <td>{{ history.14 | safe}}</td>
                     <td>{{ history.15 | safe}}</td>
+                    <td></td>
                 </tr>
                 <tr id="smartphone4-{{ forloop.counter }}" class="hidden">
                     <td class="border">Pred s.</td>
                     <td class="border">Réel s.</td>
                     <td class="border">Pred s. MAX</td>
-                    <td class="border">Réel s. MAX</td>Pred résultats 	Réel résultats
+                    <td class="border">Réel s. MAX</td>
+                    <td></td>
                 </tr>
                 <tr id="smartphone5-{{ forloop.counter }}" class="hidden">
                     <td>{{ history.16 | safe}}</td>
                     <td>{{ history.17 | safe}}</td>
                     <td>{{ history.18 | safe}}</td>
                     <td>{{ history.19 | safe}}</td>
+                    <td></td>
                 </tr>
                 <tr id="smartphone6-{{ forloop.counter }}" class="hidden">
                     <td class="border text-red-500">Pred résultats</td>
                     <td class="border text-red-500">Réel résultats</td>
+                    <td class="border text-red-500 font-bold">Pred total</td>
+                    <td class="border text-red-500 font-bold">Réel total</td>
+                    <td></td>
                 </tr>
                 <tr id="smartphone7-{{ forloop.counter }}" class="hidden">
-                    <td>{{ history.20 | safe}}€<br><br><br></td>
-                    <td>{{ history.21 | safe}}€<br><br><br></td>
+                    <td class="text-red-500 font-bold">{{ history.20 | safe}}€<br><br><br><br></td>
+                    <td class="text-red-500 font-bold">{{ history.21 | safe}}€<br><br><br><br></td>
+                    <td class="text-red-500 font-bold">{{ history.10 | floatformat:"0" }}€<br><br><br><br></td>
+                    <td class="text-red-500 font-bold">{{ history.11 | floatformat:"0" }}€<br><br><br><br></td>
+                    <td></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -77,7 +89,7 @@
         <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="0">
             <thead>
                 <tr>
-                <th class="border font-bold" nowrap>Date</th>
+                <th class="border font-bold" nowrap>🎞️📽️ Date</th>
                 <th class="border font-bold" nowrap>Films</th>
                 <th class="border font-bold" nowrap>Coûts fixes</th>
                 <th class="border font-bold" nowrap>Volume calc.</th>
@@ -94,7 +106,7 @@
             <tbody>
             {% for history in histories %}
                 <tr onClick="tr_display('desktop-{{ forloop.counter }}')">
-                    <td class="border">{{ history.0 }}</td>
+                    <td class="border">🎫 {{ history.0 }} 🍿</td>
                     <td class="border">{{ history.1 }}</td>
                     <td class="border">{{ history.2 }}€</td>
                     <td class="border">{{ history.3 }}</td>

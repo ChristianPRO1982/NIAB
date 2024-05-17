@@ -28,5 +28,4 @@ def main():
 
 if __name__ == '__main__':
     dotenv.read_dotenv(override=True)
-    # dotenv.read_dotenv(os.path.join(os.path.dirname(__file__), '.env'), override=True)
     main()
