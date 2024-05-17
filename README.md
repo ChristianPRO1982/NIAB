@@ -7,6 +7,7 @@ Voir plus bas les détails du projet.
 
 ## méthodes et technologies mises en œuvre dans ce projet :
 * python
+* Scrapy
 * SQL (MySQL)
 * Git  / GitHub
 * JIRA
@@ -14,13 +15,16 @@ Voir plus bas les détails du projet.
 * SkLearn
 * Docker
 * FastAPI
+* chron tab pour orchestrer les appels aux scrapers pour mettre les données à jour semaine par semaine et faire tourner le modèle de prédiction hors heures ouvrées.
 * Azure (pour le déploiement des BDD, de Django et de l'API contenant le pickel de prédiction basé sur un XGBoost)
 * Agile (SCRUM)
 
 Shéma des BDD développées pour le projet :
 
+### BDD analytique pour entrainer le modèle (avec des features enginering) et récupération des données des scrapers
 ![Shéma de la BDD analytique](./BDDa_shema.png)
 
+### BDD fonctionnelle pour récupérer les données des scrapers orchestrés par une chrontab + gestion du site Django + alimentation du modèle de prédiction avec les données scrapées et les features enginering
 ![Shéma de la BDD fonctionnel](./BDDf_shema.png)
 
 ## Brief du projet
