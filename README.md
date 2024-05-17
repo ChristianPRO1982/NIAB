@@ -5,6 +5,18 @@ L'object est de créer une application pro pour un gérant de cinéma : outil d�
 
 Voir plus bas les détails du projet.
 
+## méthodes et technologies mises en œuvre dans ce projet :
+* python
+* SQL (MySQL)
+* Git  / GitHub
+* JIRA
+* Django
+* SkLearn
+* Docker
+* FastAPI
+* Azure (pour le déploiement des BDD, de Django et de l'API contenant le pickel de prédiction basé sur un XGBoost)
+* Agile (SCRUM)
+
 Shéma des BDD développées pour le projet :
 
 ![Shéma de la BDD analytique](./BDDa_shema.png)
