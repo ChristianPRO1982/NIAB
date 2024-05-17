@@ -21,10 +21,11 @@ Voir plus bas les détails du projet.
 
 Shéma des BDD développées pour le projet :
 
-### BDD analytique pour entrainer le modèle (avec des features enginering) et récupération des données des scrapers
+### BDD analytique pour entrainer le modèle (avec des features engineering) et récupération des données des scrapers
 ![Shéma de la BDD analytique](./BDDa_shema.png)
 
 ### BDD fonctionnelle pour récupérer les données des scrapers orchestrés par une chrontab + gestion du site Django + alimentation du modèle de prédiction avec les données scrapées et les features enginering
+NB : les tables de gestions de Django et les sous-vues pour les features engineering ne sont pas présentent pour simplifier le schéma.
 ![Shéma de la BDD fonctionnel](./BDDf_shema.png)
 
 ## Brief du projet
